@@ -1,0 +1,28 @@
+<h1>FAQS</h1>
+
+<div *ngFor="let faq of faqs$ | async">
+  {{ faq.kuka || faq.who }} {{ faq.question }}
+  <button (click)="remove(faq.id)">remove</button>
+</div>
+
+<form [formGroup]="faqForm" fxLayout="column" fxLayoutAlign="center center">
+  <h2>Add a New Question</h2>
+  <mat-form-field appearance="outline">
+    <mat-label>Who???</mat-label>
+    <input matInput type="text" formControlName="who" />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Question</mat-label>
+    <input matInput type="text" formControlName="question" />
+  </mat-form-field>
+  <div>
+    <button
+      mat-raised-button
+      color="primary"
+      type="button"
+      (click)="submitFaq()"
+    >
+      Save
+    </button>
+  </div>
+</form>

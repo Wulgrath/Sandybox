@@ -1,0 +1,1 @@
+{"version":3,"file":"dynamodb-get-albums.js","sourceRoot":"","sources":["../../../../server/services/dynamodb/albums/dynamodb-get-albums.ts"],"names":[],"mappings":";;;AAAA,gDAAmD;AAE5C,MAAM,iBAAiB,GAAG,GAAG,EAAE,CACpC,eAAS;KACN,IAAI,CAAC;IACJ,SAAS,EAAE,+BAA+B;CAC3C,CAAC;KACD,OAAO,EAAE;KACT,IAAI,CAAC,CAAC,QAAQ,EAAE,EAAE,CAAC,QAAQ,CAAC,KAAK,CAAC,CAAC;AAN3B,QAAA,iBAAiB,qBAMU"}

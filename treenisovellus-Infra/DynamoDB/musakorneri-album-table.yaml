@@ -1,0 +1,52 @@
+---
+AWSTemplateFormatVersion: "2010-09-09"
+Description: DynamoDB table
+
+Parameters:
+  ApplicationName:
+    Type: String
+    Description: Application name used for cloudformation deployments
+    MinLength: "1"
+    MaxLength: "20"
+  EnvironmentName:
+    Type: String
+    MinLength: "1"
+    MaxLength: "20"
+    AllowedValues:
+      - staging
+      - production
+
+Resources:
+  WebsiteFAQTable:
+    Type: "AWS::DynamoDB::Table"
+    Properties:
+      AttributeDefinitions:
+        - AttributeName: "id"
+          AttributeType: "S"
+      KeySchema:
+        - AttributeName: "id"
+          KeyType: "HASH"
+      BillingMode: "PAY_PER_REQUEST"
+      TableName: !Sub "${ApplicationName}-${EnvironmentName}-albums"
+      StreamSpecification:
+        StreamViewType: "NEW_AND_OLD_IMAGES"
+      Tags:
+        - Key: Name
+          Value: !Sub "${ApplicationName}-${EnvironmentName}-albums"
+        - Key: Application
+          Value: !Ref "ApplicationName"
+        - Key: Environment
+          Value: !Ref "EnvironmentName"
+
+Outputs:
+  AlbumsTableArn:
+    Description: AlbumsTable ARN
+    Value: !GetAtt AlbumsTable.Arn
+    Export:
+      Name: !Sub ${ApplicationName}-${EnvironmentName}-albums-table-arn
+
+  AlbumsTableStreamArn:
+    Description: AlbumsTable stream ARN
+    Value: !GetAtt AlbumsTable.StreamArn
+    Export:
+      Name: !Sub ${ApplicationName}-${EnvironmentName}-albums-table-stream-arn

@@ -1,0 +1,130 @@
+@use '~@angular/material' as mat;
+
+$body-typography: null;
+
+$breakpoint-sm: 600px;
+$breakpoint-md: 960px;
+$breakpoint-lg: 1280px;
+$breakpoint-xl: 1920px;
+
+//font-size, line-height, font-weight, font-family, letter-spacing
+
+$body-xs: 16px;
+$body-sm: 18px;
+$body-md: 20px;
+$body-lg: 22px;
+$body-xl: 24px;
+
+$h1-xs: 26px;
+$h1-sm: 28px;
+$h1-md: 32px;
+$h1-lg: 34px;
+$h1-xl: 36px;
+
+$h2-xs: 22px;
+$h2-sm: 24px;
+$h2-md: 26px;
+$h2-lg: 28px;
+$h2-xl: 30px;
+
+$h3-xs: 20px;
+$h3-sm: 22px;
+$h3-md: 24px;
+$h3-lg: 26px;
+$h3-xl: 28px;
+
+@media (max-width: $breakpoint-sm) {
+  $body-typography: mat.define-typography-config(
+    $body-1: mat.define-typography-level($body-xs),
+    $headline: mat.define-typography-level($h1-xs),
+    $title: mat.define-typography-level($h2-xs),
+    $subheading-2: mat.define-typography-level($h3-xs),
+  );
+  @include mat.core($body-typography);
+}
+
+@media (min-width: $breakpoint-sm) {
+  $body-typography: mat.define-typography-config(
+    $body-1: mat.define-typography-level($body-sm),
+    $headline: mat.define-typography-level($h1-sm),
+    $title: mat.define-typography-level($h2-sm),
+    $subheading-2: mat.define-typography-level($h3-sm),
+  );
+  @include mat.core($body-typography);
+}
+
+@media (min-width: $breakpoint-md) {
+  $body-typography: mat.define-typography-config(
+    $body-1: mat.define-typography-level($body-md),
+    $headline: mat.define-typography-level($h1-md),
+    $title: mat.define-typography-level($h2-md),
+    $subheading-2: mat.define-typography-level($h3-md),
+  );
+  @include mat.core($body-typography);
+}
+
+@media (min-width: $breakpoint-lg) {
+  $body-typography: mat.define-typography-config(
+    $body-1: mat.define-typography-level($body-lg),
+    $headline: mat.define-typography-level($h1-lg),
+    $title: mat.define-typography-level($h2-lg),
+    $subheading-2: mat.define-typography-level($h3-lg),
+  );
+  @include mat.core($body-typography);
+}
+
+@media (min-width: $breakpoint-xl) {
+  $body-typography: mat.define-typography-config(
+    $body-1: mat.define-typography-level($body-xl),
+    $headline: mat.define-typography-level($h1-xl),
+    $title: mat.define-typography-level($h2-xl),
+    $subheading-2: mat.define-typography-level($h3-xl),
+  );
+  @include mat.core($body-typography);
+}
+
+/*$breakpoints: (
+  sm: 600px,
+  md: 960px,
+  lg: 1280px,
+  xl: 1920px,
+);
+
+$body-font-sizes: (
+  //font-size, line-height, font-weight, font-family, letter-spacing
+  null: 16px,
+  sm: 18px,
+  md: 20px,
+  lg: 22px,
+  xl: 24px
+);
+
+$headline-font-sizes: (
+  null: 28px,
+  sm: 30px,
+  md: 32px,
+  lg: 34px,
+  xl: 36px,
+);
+*/
+
+/*@mixin font-size($fs-map, $fs-breakpoints: $breakpoints) {
+  @each $fs-breakpoint, $body-font-size, $headline-font-size in $fs-map {
+    @if $fs-breakpoint == null {
+      @include mat.core($body-typography);
+    } @else {
+      @if map-has-key($fs-breakpoints, $fs-breakpoint) {
+        $fs-breakpoint: map-get($fs-breakpoints, $fs-breakpoint);
+      }
+      @media (min-width: $fs-breakpoint) {
+        $typography: mat.define-typography-config(
+          $body-1: mat.define-typography-level($body-font-size),
+        );
+        @include mat.core($typography);
+      }
+    }
+  }
+}
+
+@include font-size($body-font-sizes);
+*/

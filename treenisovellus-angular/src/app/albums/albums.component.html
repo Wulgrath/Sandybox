@@ -1,0 +1,17 @@
+<add-album></add-album>
+
+<div *ngIf="loading$ | async" fxLayout="row" fxLayout="center center">
+  <mat-spinner></mat-spinner>
+</div>
+<section fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="5px">
+  <h2>Albumlist</h2>
+  <div *ngFor="let album of albums" fxLayout="row">
+    <div>
+      <h4>{{ album.title }} by {{ album.artist }}</h4>
+      <p>released in: {{ album.released }}</p>
+    </div>
+    <button type="button" (click)="remove(album.id)">remove</button>
+  </div>
+</section>
+
+<button (click)="increment()">INCREMENT</button>
